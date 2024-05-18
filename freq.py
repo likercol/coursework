@@ -25,8 +25,8 @@ def generate_freq_dict(alphabet: str) -> dict:
     return dict_with_counted_letters
 
 
-def create_freq_list(alphbet: str) -> list:
-    dict_with_counted_letters = generate_freq_dict(alphbet)
+def create_freq_list(alphabet: str) -> list:
+    dict_with_counted_letters = generate_freq_dict(alphabet)
     freq_list = [
         letter for letter, value in sorted(dict_with_counted_letters.items(), key=lambda item: item[1], reverse=True)
     ]

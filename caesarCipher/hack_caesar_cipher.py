@@ -1,11 +1,7 @@
 import re
-import freq
 
 
-def create_freq_list_for_ciphertext(alphabet: str) -> list:
-    with open(r'..\texts\ToHack.txt', 'r', encoding='utf-8') as t:
-        text = t.read()
-        t.close()
+def create_freq_list_for_ciphertext(text: str, alphabet: str) -> list:
     text = text.lower().replace(' ', '')  # Преобразование текста
     text = ''.join(re.findall('[а-я]', text))
 
@@ -25,7 +21,7 @@ def create_freq_list_for_ciphertext(alphabet: str) -> list:
     return freq_list
 
 
-def decrypt_caesar_cipher_using_freq_an(ciphertext, freq_list, real_freq_list):
+def decrypt_caesar_cipher_using_freq_an(ciphertext: str, freq_list: list, real_freq_list: list):
     # Создаем словарь для расшифровки
     decryption_dict = {enc_char: real_char for enc_char, real_char in zip(freq_list, real_freq_list)}
     # Расшифровываем текст

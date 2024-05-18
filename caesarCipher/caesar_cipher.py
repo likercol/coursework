@@ -1,8 +1,8 @@
 import re
-from typing import Dict
+# from typing import Dict
 
 
-def caesar_encrypt(plaintext: str, key: int, alphabet: str):
+def caesar_encrypt(plaintext: str, key: int, alphabet: str) -> str:
     plaintext = change_text(plaintext)
     # Создали удобный словарь с параметрами {буква : номер буквы}
     alphabet_dict: dict[str, int] = {}
@@ -25,14 +25,8 @@ def caesar_encrypt(plaintext: str, key: int, alphabet: str):
     return ''.join(ciphertext)
 
 
-def caesar_decrypt(ciphertext: str, key: int, alphabet: str):
+def caesar_decrypt(ciphertext: str, key: int, alphabet: str) -> str:
     return caesar_encrypt(ciphertext, -key, alphabet)
-
-
-def upload_caesar_ciphertext_to_file(ciphertext: str):
-    with open(r'..\texts\ToHack.txt', 'w', encoding='utf-8') as upload_t:
-        upload_t.write(ciphertext)
-        upload_t.close()
 
 
 def change_text(text) -> str:
